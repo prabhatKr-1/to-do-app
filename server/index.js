@@ -2,7 +2,10 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import router from "./routes/user.js";
 import { connectDB } from "./model/database.js";
-import User from "./model/user.js";
+import dotenv from "dotenv";
+dotenv.config({
+  path: "./config.env",
+});
 
 const app = express();
 
