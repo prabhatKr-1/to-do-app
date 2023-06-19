@@ -4,14 +4,15 @@ import Users from "../model/user.js";
 
 export async function loginController(req, res) {
   const { email, password } = req.body;
-  const user = Users.findOne({ email: email });
+  const user = await Users.findOne({ email });
   if (!user) {
     return res.json({
       message: "User doesn't exist!",
       success: false,
     });
   }
-  const validPassword = await bcrypt.compare(user.password, password);
+  // the first argument should be plain text password, the second should be the encrypted one
+  const validPassword = await bcrypt.compare(password, user.password);
   if (!validPassword) {
     return res.json({
       message: "Invalid Password",
