@@ -1,28 +1,32 @@
 import bcrypt from "bcrypt";
 import Users from "../model/user.js";
 
-export function registerController(req, res) {
-  const { name, email, password, passwordVerify } = req.body;
+export async function registerController(req, res) {
+  const { name, email, password, verifyPassword } = req.body;
 
-  if (password !== passwordVerify) {
+  if (password !== verifyPassword) {
     return res.json({
       message: "Passwords do not match!",
       success: false,
     });
   }
 
-  const user = Users.findOne({ email: email });
-
+  const user = await Users.findOne({ email: email });
+  console.log(user);
   if (user) {
     return res.json({
       message: "Email already exists!",
       success: false,
     });
   }
-  Users.create({
+  const hashedPassword = await bcrypt.hash(password, 10);
+  await Users.create({
     name,
     email,
-    password: bcrypt.hash(password, 10),
+    password: hashedPassword,
   });
-  return res.render(back);
+  return res.json({
+    message: "User created successfully",
+    success: true,
+  });
 }
