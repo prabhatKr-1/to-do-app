@@ -1,8 +1,7 @@
 import express from "express";
+import logoutController from "../controllers/logoutController.js";
 
 const router = express.Router();
 
-router.get("/logout", (req, res) => {
-  res.send("Logout Page");
-});
+router.get("/logout", logoutController);
 export default router;
