@@ -4,11 +4,11 @@ import mongoose from "mongoose";
 const schema = mongoose.Schema({
   taskName: {
     type: String,
+    unique: true,
     required: true,
   },
   task: {
     type: String,
-    required: true,
   },
   isChecked: {
     type: Boolean,
@@ -17,7 +17,7 @@ const schema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-  }
+  },
 });
 
 const Tasks = mongoose.model("Task", schema);

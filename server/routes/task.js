@@ -3,10 +3,10 @@ import { getTasks, createTask, deleteTask, updateTask } from '../controllers/tas
 import {isLoggedIn} from '../middleware/isLoggedIn.js'
 const router = express.Router();
 
-router.get('/', isLoggedIn, getTasks);
-router.post('/', isLoggedIn, createTask);
+router.get('/all', isLoggedIn, getTasks);
+router.post('/add', isLoggedIn, createTask);
 router.delete('/:id', isLoggedIn, deleteTask);
-router.patch('/:id', isLoggedIn, updateTask);
+router.put('/:id', isLoggedIn, updateTask);
 
 
 export default router;
