@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 connectDB();
 
-app.use("/api/v1/users", router);
+app.use("/api/v1/user", router);
 
 const port = process.env.PORT;
 app.listen(port, () => {
