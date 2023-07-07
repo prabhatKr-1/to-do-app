@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:10px;
+}
+nav p{
+    padding:10px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height:90vh;
+  flex-direction: column;
+
+}
+form input{
+  margin:1rem;
+  padding:.5rem;
+}
+img{
+  width:3vw;
+}
