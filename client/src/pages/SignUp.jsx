@@ -1,15 +1,39 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name,setName] = useState("");
+  const [name, setName] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/v1/user/register",
+        {
+          name,
+          email,
+          password,
+          verifyPassword,
+        }
+      );
+      if (data.success) {
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
-      <form action="" method="post">
+      <form onSubmit={submitHandler}>
         <input
           type="text"
           name="name"
