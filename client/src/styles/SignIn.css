@@ -1,0 +1,22 @@
+form{
+    box-sizing: border-box;
+}
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height:100vh;
+    flex-direction: column;
+    
+  
+  }
+.login-form input{
+    margin:1rem;
+    padding:.8rem;
+    width:40%;
+    border: 2px solid blue;
+    transition: border .5s ease-in-out;
+}
+
+

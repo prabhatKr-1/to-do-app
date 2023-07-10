@@ -7,24 +7,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin:10px;
+  border-bottom: 2px solid gray;
 }
 nav p{
-    padding:10px;
+    padding:15px;
+    font-size: x-large;
+    color:#2a417d;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  height:90vh;
-  flex-direction: column;
 
-}
-form input{
-  margin:1rem;
-  padding:.5rem;
-}
 img{
   width:3vw;
 }

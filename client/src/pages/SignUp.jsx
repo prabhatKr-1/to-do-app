@@ -1,37 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name,setName] = useState("");
+  const [verifyPassword, setVerifyPassword] = useState("");
+
   return (
     <div>
       <form action="" method="post">
         <input
           type="text"
           name="name"
-          id=""
+          value={name}
           placeholder="Enter Your Name"
           required
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
           name="email"
-          id=""
+          value={email}
           placeholder="Email Address"
           required
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           name="password"
-          id=""
+          value={password}
           placeholder="Create Your Password"
           required
+          onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
           name="verifyPassword"
-          id=""
+          value={verifyPassword}
           placeholder="Verify Password"
           required
+          onChange={(e) => setVerifyPassword(e.target.value)}
         />
         <input type="submit" value="Sign Up" />
 
