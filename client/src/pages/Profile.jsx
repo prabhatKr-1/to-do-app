@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 
 function Profile() {
-  const { user } = useContext(AuthContext);
+  const { user, isAuth, setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -14,7 +14,8 @@ function Profile() {
         withCredentials: true,
       });
       toast.success("Logged Out Successfully");
-      navigate("/sign-in");
+      setIsAuth(false);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
