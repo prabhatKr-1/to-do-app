@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -7,7 +7,9 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [verifyPassword, setVerifyPassword] = useState(""); 
+
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -22,9 +24,10 @@ function SignUp() {
         }
       );
       if (data.success) {
-        toast.success(data.message);
+        toast.success(data.message); 
+        navigate("/sign-in");
       } else {
-        toast.error(data.message);
+        toast.error(data.message); 
       }
     } catch (error) {
       console.log(error);

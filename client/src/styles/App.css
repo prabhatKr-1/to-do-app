@@ -19,3 +19,6 @@ nav p{
 img{
   width:3vw;
 }
+img:hover{
+  cursor: pointer;
+}
