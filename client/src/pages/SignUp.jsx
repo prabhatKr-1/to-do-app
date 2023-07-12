@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import "../styles/SignUp.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState(""); 
+  const [verifyPassword, setVerifyPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,10 +25,10 @@ function SignUp() {
         }
       );
       if (data.success) {
-        toast.success(data.message); 
+        toast.success(data.message);
         navigate("/sign-in");
       } else {
-        toast.error(data.message); 
+        toast.error(data.message);
       }
     } catch (error) {
       console.log(error);
@@ -35,8 +36,9 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
+    <div className="sign-up">
+      <form onSubmit={submitHandler} className="logout-form">
+        <h1>Sign Up</h1>
         <input
           type="text"
           name="name"
@@ -71,10 +73,12 @@ function SignUp() {
         />
         <input type="submit" value="Sign Up" />
 
-        <p>
+        <h3>
           Have an account?
-          <Link to="/sign-in">Sign In</Link>
-        </p>
+          <span>
+            <Link to="/sign-in">Sign In</Link>
+          </span>
+        </h3>
       </form>
     </div>
   );
