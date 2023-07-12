@@ -1,22 +1,33 @@
-form{
-    box-sizing: border-box;
+.sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 65vh;
+  margin: 5% auto;
+  border: 2px solid rgb(209, 201, 201);
+  color:aliceblue
 }
+
 .login-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    height:100vh;
-    flex-direction: column;
-    
-  
-  }
-.login-form input{
-    margin:1rem;
-    padding:.8rem;
-    width:40%;
-    border: 2px solid blue;
-    transition: border .5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 100vh;
+  flex-direction: column;
 }
-
-
+.login-form input {
+  margin: 1rem;
+  padding: 0.8rem;
+  width: 20vw;
+  transition: border 0.5s ease-in-out;
+}
+input[type="submit"] {
+    background-color: rgb(68, 68, 214);
+  width: 10vw;
+}
+a{
+    color:aliceblue;
+    text-decoration: none;
+}

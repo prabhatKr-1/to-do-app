@@ -46,8 +46,9 @@ function SignIn() {
   };
 
   return (
-    <div>
+    <div className="sign-in">
       <form className="login-form" onSubmit={submitHandler}>
+        <h1>Sign In</h1>
         <input
           type="email"
           name="email"
@@ -65,10 +66,12 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input type="submit" value="Sign In" />
-        <p>
+        <h3>
           New Here?
-          <Link to="/sign-up">Sign Up</Link>
-        </p>
+          <span>
+            <Link to="/sign-up">Sign Up</Link>
+          </span>
+        </h3>
       </form>
     </div>
   );

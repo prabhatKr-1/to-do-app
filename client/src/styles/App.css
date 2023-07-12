@@ -2,23 +2,37 @@
   margin: 0;
   padding: 0;
 }
+
+body::before {
+  content: "";
+  background-image: url("https://wallpaperaccess.com/full/676037.jpg");
+  background-size: cover;
+  opacity: 0.9;
+  position: absolute; /* Add position absolute */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin:10px;
+  margin: 10px;
   border-bottom: 2px solid gray;
 }
-nav p{
-    padding:15px;
-    font-size: x-large;
-    color:#2a417d;
+
+nav p {
+  padding: 15px;
+  font-size: x-large;
+  color: #2a417d;
 }
 
-
-img{
-  width:3vw;
+img {
+  width: 3vw;
 }
-img:hover{
+img:hover {
   cursor: pointer;
 }
