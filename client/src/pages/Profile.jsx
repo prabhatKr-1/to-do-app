@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../main";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 import "../styles/Profile.css";
 
@@ -12,14 +12,14 @@ function Profile() {
 
   const logoutHandler = async () => {
     try {
-      await axios.get("http://localhost:5000/api/v1/user/logout", {
+      await axios.get("https://todoapp-2nj3.onrender.com/api/v1/user/logout", {
         withCredentials: true,
       });
       toast.success("Logged Out Successfully");
       setIsAuth(false);
       navigate("/sign-in");
     } catch (error) {
-      console.log(error);
+      toast(error.response.data.message);
       setIsAuth(true);
     }
   };

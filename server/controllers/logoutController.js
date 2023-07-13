@@ -7,6 +7,8 @@ export default function logout(req, res) {
   res
     .cookie("token", "", {
       expires: new Date(Date.now()),
+      sameSite: "none",
+      secure: true,
     })
     .json({
       message: "Logged out successfully!",

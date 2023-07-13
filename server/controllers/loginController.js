@@ -25,6 +25,9 @@ export async function loginController(req, res) {
   res
     .cookie("token", token, {
       httpOnly: true,
+      maxAge: 30 * 60 * 1000,
+      sameSite: "none",
+      secure: true,
     })
     .json({
       message: "Login Successful",

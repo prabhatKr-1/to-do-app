@@ -4,6 +4,6 @@ export default async function profileController(req, res) {
   return res.json({
     name: req.user.name,
     email: req.user.email,
-    success: true
+    success: true,
   });
 }

@@ -1,7 +1,7 @@
 .user-welcome {
-    margin-top: 2.5%;
+  margin-top: 2.5%;
   text-align: center;
-  color: whitesmoke;
+  color: black;
 }
 .info {
   display: flex;
@@ -24,21 +24,20 @@
   align-items: center;
   font-size: 2.6rem;
 }
-.value{
-    padding: 2%;
-    font-size: 8rem;
+.value {
+  padding: 2%;
+  font-size: 8rem;
 }
 .logout-btn {
   margin: auto;
   position: relative;
   left: 47%;
   top: 5%;
-  margin-top: 2.5rem; 
+  margin-top: 2.5rem;
   padding: 5px;
-  background-color: rgba(46, 160, 67,0.5);
-
+  background-color: rgba(46, 160, 67, 0.5);
 }
 .logout-btn:hover {
   cursor: pointer;
-  background-color: rgba(46, 160, 67,1);
+  background-color: rgba(46, 160, 67, 1);
 }

@@ -6,7 +6,6 @@ import { connectDB } from "./model/database.js";
 import dotenv from "dotenv";
 import cors from "cors";
 
-
 dotenv.config({
   path: "./config.env",
 });
@@ -15,11 +14,13 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  credentials: true,
-  origin: "http://localhost:5173",
-  methods:["GET","POST","PUT","DELETE"]
-}));
+app.use(
+  cors({
+    credentials: true,
+    origin: [process.env.DOMAIN],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(cookieParser());
 
 app.get("/", (req, res) => {

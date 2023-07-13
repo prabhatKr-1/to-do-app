@@ -16,7 +16,7 @@ function SignUp() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/register",
+        "https://todoapp-2nj3.onrender.com/api/v1/user/register",
         {
           name,
           email,
@@ -31,7 +31,7 @@ function SignUp() {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      toast(error.response.data.message);
     }
   };
 
@@ -74,7 +74,9 @@ function SignUp() {
         <input type="submit" value="Sign Up" />
 
         <h3>
-          <span style={{ margin: 10,fontWeight:"normal" }}>Have an account?</span>
+          <span style={{ margin: 10, fontWeight: "normal" }}>
+            Have an account?
+          </span>
           <span>
             <Link to="/sign-in">Sign In</Link>
           </span>

@@ -23,7 +23,7 @@ function Home() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/tasks/add",
+        "https://todoapp-2nj3.onrender.com/api/v1/tasks/add",
         {
           taskName,
           task,
@@ -42,7 +42,7 @@ function Home() {
   const updateHandler = async (_id) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/tasks/${_id}`,
+        `https://todoapp-2nj3.onrender.com/api/v1/tasks/${_id}`,
         {},
         {
           withCredentials: true,
@@ -59,12 +59,11 @@ function Home() {
   const deleteHandler = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/tasks/${id}`,
+        `https://todoapp-2nj3.onrender.com/api/v1/tasks/${id}`,
         {
           withCredentials: true,
         }
       );
-      console.log(data);
       data.success ? toast.success(data.message) : toast.error(data.message);
       setUpdate(!update);
     } catch (error) {
@@ -74,7 +73,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/tasks/all", {
+      .get("https://todoapp-2nj3.onrender.com/api/v1/tasks/all", {
         withCredentials: true,
       })
       .then((res) => {

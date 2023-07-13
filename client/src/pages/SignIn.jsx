@@ -21,7 +21,7 @@ function SignIn() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/login",
+        "https://todoapp-2nj3.onrender.com/api/v1/user/login",
         {
           email,
           password,
@@ -38,7 +38,7 @@ function SignIn() {
         setIsAuth(false);
       }
     } catch (error) {
-      console.log(error);
+      toast(error.response.data.message);
       setIsAuth(false);
     }
   };
@@ -65,7 +65,7 @@ function SignIn() {
         />
         <input type="submit" value="Sign In" />
         <h3>
-          <span style={{margin:10,fontWeight:"normal"}}>New Here?</span>
+          <span style={{ margin: 10, fontWeight: "normal" }}>New Here?</span>
           <span>
             <Link to="/sign-up">Sign Up</Link>
           </span>
