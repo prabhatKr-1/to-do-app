@@ -7,7 +7,7 @@ import Task from "../components/Task";
 import "../styles/Home.css";
 
 function Home() {
-  const { isAuth,setTotalTasks,setCompletedTasks } = useContext(AuthContext);
+  const { isAuth, setTotalTasks, setCompletedTasks } = useContext(AuthContext);
   const [taskName, setTaskName] = useState("");
   const [task, setTask] = useState("");
   const [taskArray, setTaskArray] = useState([]);
@@ -80,7 +80,9 @@ function Home() {
       .then((res) => {
         setTaskArray(res.data.tasks);
         setTotalTasks(res.data.tasks.length);
-        setCompletedTasks(res.data.tasks.filter((item) => item.isChecked).length);
+        setCompletedTasks(
+          res.data.tasks.filter((item) => item.isChecked).length
+        );
       })
       .catch((e) => {
         toast.error(e.response.data.message);
@@ -96,15 +98,18 @@ function Home() {
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
             required
+            className="taskName"
             placeholder="Enter Task Name"
           />
           <input
             type="text"
             value={task}
+            required
+            className="taskDisc"
             onChange={(e) => setTask(e.target.value)}
             placeholder="Enter Task Description"
           />
-          <button type="submit">
+          <button className="add-btn" type="submit">
             <img src="https://cdn-icons-png.flaticon.com/128/3161/3161837.png" />
           </button>
         </form>

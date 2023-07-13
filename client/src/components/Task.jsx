@@ -6,15 +6,15 @@ function Task(props) {
     props;
   return (
     <div className="task">
-      <span className="taskName">{taskName}</span>
-      <span className="taskDisc">{task}</span>
+      <span className="name">{taskName}</span>
+      <span className="disc">{task}</span>
       <input
         type="checkbox"
         className="checkbox"
         checked={isChecked}
         onChange={() => updateHandler(_id)}
       />
-      <button onClick={() => deleteHandler(_id)}>
+      <button className="del-btn" onClick={() => deleteHandler(_id)}>
         <img src="https://cdn-icons-png.flaticon.com/128/3405/3405244.png" />
       </button>
     </div>
