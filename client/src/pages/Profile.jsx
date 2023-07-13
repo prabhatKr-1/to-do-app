@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../main";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import "../styles/Profile.css";
 
 function Profile() {
-  const { user, isAuth, setIsAuth, totalTasks,completedTasks } = useContext(AuthContext);
+  const { user, isAuth, setIsAuth, totalTasks, completedTasks } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -23,12 +25,20 @@ function Profile() {
   };
   return (
     <>
-      <h1>Welcome {user.name}</h1>
+      <h1 className="user-welcome">Welcome {user.name}</h1>
       <div className="info">
-        <div className="total">Total Tasks: {totalTasks}</div>
-        <div className="completed">Completed Tasks: { completedTasks}</div>
+        <div className="total">
+          <span>Total Tasks:</span>
+          <span className="value">{totalTasks}</span>
+        </div>
+        <div className="completed">
+          <span>Completed Tasks:</span>
+          <span className="value">{completedTasks}</span>
+        </div>
       </div>
-      <button onClick={logoutHandler}>LogOut</button>
+      <button className="logout-btn user-welcome" onClick={logoutHandler}>
+        <h1>LogOut</h1>
+      </button>
     </>
   );
 }

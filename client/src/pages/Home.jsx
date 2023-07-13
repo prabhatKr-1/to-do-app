@@ -3,12 +3,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../main";
-import toast from "react-hot-toast";
 import Task from "../components/Task";
 import "../styles/Home.css";
 
 function Home() {
-  const { isAuth, setTotalTasks, setCompletedTasks } = useContext(AuthContext);
+  const { isAuth,setTotalTasks,setCompletedTasks } = useContext(AuthContext);
   const [taskName, setTaskName] = useState("");
   const [task, setTask] = useState("");
   const [taskArray, setTaskArray] = useState([]);
@@ -16,7 +15,6 @@ function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     if (!isAuth) {
-      toast("Please Login First");
       return navigate("/sign-in");
     }
   }, []);
@@ -82,9 +80,7 @@ function Home() {
       .then((res) => {
         setTaskArray(res.data.tasks);
         setTotalTasks(res.data.tasks.length);
-        setCompletedTasks(
-          res.data.tasks.filter((item) => item.isChecked).length
-        );
+        setCompletedTasks(res.data.tasks.filter((item) => item.isChecked).length);
       })
       .catch((e) => {
         toast.error(e.response.data.message);
