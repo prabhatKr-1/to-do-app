@@ -1,20 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  color:black;
 }
 
-body::before {
-  content: "";
-  background-image: url("https://wallpaperaccess.com/full/676037.jpg");
-  background-size: cover;
-  opacity: 0.9;
-  position: absolute; /* Add position absolute */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
 
 nav {
   display: flex;
@@ -26,12 +15,13 @@ nav {
 
 nav p {
   padding: 15px;
-  font-size: x-large;
-  color: #2a417d;
+  font-size: xx-large;
+  color: black;
 }
 
 img {
   width: 3vw;
+  color:white;
 }
 img:hover {
   cursor: pointer;

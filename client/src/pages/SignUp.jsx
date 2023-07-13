@@ -74,7 +74,7 @@ function SignUp() {
         <input type="submit" value="Sign Up" />
 
         <h3>
-          Have an account?
+          <span style={{ margin: 10,fontWeight:"normal" }}>Have an account?</span>
           <span>
             <Link to="/sign-in">Sign In</Link>
           </span>

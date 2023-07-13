@@ -65,7 +65,7 @@ function SignIn() {
         />
         <input type="submit" value="Sign In" />
         <h3>
-          New Here?
+          <span style={{margin:10,fontWeight:"normal"}}>New Here?</span>
           <span>
             <Link to="/sign-up">Sign Up</Link>
           </span>
