@@ -33,11 +33,9 @@ function SignIn() {
       if (data.success) {
         toast.success(data.message);
         setIsAuth(true);
-        console.log(isAuth);
-        navigate("/");
       } else {
         toast.error(data.message);
-        // setIsAuth(false);
+        setIsAuth(false);
       }
     } catch (error) {
       console.log(error);

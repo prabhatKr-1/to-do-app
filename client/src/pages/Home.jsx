@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
-import Task from "../components/Task";
-import "../styles/Home.css";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../main";
+import Task from "../components/Task";
+import "../styles/Home.css";
 
 function Home() {
-  const { isAuth } = useContext(AuthContext);
+  const { isAuth,taskArray,setTaskArray } = useContext(AuthContext);
   const [taskName, setTaskName] = useState("");
   const [task, setTask] = useState("");
-  const [taskArray, setTaskArray] = useState([]);
   const [update, setUpdate] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isAuth) {
+      return navigate("/sign-in");
+    }
+  }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -76,7 +82,7 @@ function Home() {
       .catch((e) => {
         toast.error(e.response.data.message);
       });
-  }, [update]);
+  }, [update,isAuth]);
 
   return (
     <div className="container">

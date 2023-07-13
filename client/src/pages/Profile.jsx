@@ -15,7 +15,7 @@ function Profile() {
       });
       toast.success("Logged Out Successfully");
       setIsAuth(false);
-      navigate("/");
+      navigate("/sign-in");
     } catch (error) {
       console.log(error);
     }

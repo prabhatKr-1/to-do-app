@@ -29,7 +29,7 @@ function App() {
       }
     }
     helper();
-  }, []);
+  }, [setUser, setIsAuth]);
 
   return (
     <Router>

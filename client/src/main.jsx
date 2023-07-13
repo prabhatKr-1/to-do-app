@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 const AppWrapper = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState({});
+  const [taskArray, setTaskArray] = useState([]);
 
   return (
     <AuthContext.Provider
@@ -15,6 +16,8 @@ const AppWrapper = () => {
         setIsAuth, 
         user,
         setUser,
+        taskArray,
+        setTaskArray
       }}
     >
       <App />
