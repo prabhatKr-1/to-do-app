@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../main";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 
 function Profile() {
-  const { user, isAuth, setIsAuth } = useContext(AuthContext);
+  const { user, isAuth, setIsAuth, totalTasks,completedTasks } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const logoutHandler = async () => {
@@ -18,13 +18,16 @@ function Profile() {
       navigate("/sign-in");
     } catch (error) {
       console.log(error);
+      setIsAuth(true);
     }
   };
-
   return (
     <>
       <h1>Welcome {user.name}</h1>
-      <h1>Your Email is: {user.email}</h1>
+      <div className="info">
+        <div className="total">Total Tasks: {totalTasks}</div>
+        <div className="completed">Completed Tasks: { completedTasks}</div>
+      </div>
       <button onClick={logoutHandler}>LogOut</button>
     </>
   );
